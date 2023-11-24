@@ -1,7 +1,7 @@
 CMakeFiles/tp.dir/src/stb_image.cpp.o: \
- /home/e20200008252/Cours/prog-3D-2023/template/src/stb_image.cpp \
+ /home/patateon/Documents/Projets/TP4/template/src/stb_image.cpp \
  /usr/include/stdc-predef.h \
- /home/e20200008252/Cours/prog-3D-2023/template/include/./stb_image.h \
+ /home/patateon/Documents/Projets/TP4/template/include/./stb_image.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

@@ -1,5 +1,5 @@
 CMakeFiles/tp.dir/src/Trackball.cpp.o: \
- /home/e20200008252/Cours/prog-3D-2023/template/src/Trackball.cpp \
+ /home/patateon/Documents/Projets/TP4/template/src/Trackball.cpp \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -94,4 +94,4 @@ CMakeFiles/tp.dir/src/Trackball.cpp.o: \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
  /usr/include/c++/11/tr1/riemann_zeta.tcc \
- /home/e20200008252/Cours/prog-3D-2023/template/include/Trackball.h
+ /home/patateon/Documents/Projets/TP4/template/include/Trackball.h
