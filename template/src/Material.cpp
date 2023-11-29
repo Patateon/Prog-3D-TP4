@@ -22,7 +22,7 @@ void Material::init() {
 	// TODO : set initial parameters
 	m_color = {1.0, 1.0, 1.0, 1.0};
 	m_texture = loadTexture2DFromFilePath("data/TwoSidedPlane_BaseColor.png");
-	m_normal = loadTexture2DFromFilePath("data/TwoSidedPlane_Normal.png");
+	m_normal = loadTexture2DFromFilePathDepth("data/TwoSidedPlane_Normal.png");
 }
 
 void Material::clear() {
@@ -46,10 +46,10 @@ void Material::internalBind() {
 		glUniform1i(getUniform("colorTexture"), 0);
 	}
 
-	if (m_texture != -1) {
+	if (m_normal != -1) {
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, m_normal);
-		glUniform1i(getUniform("normalTexture"), 1);
+		glUniform1i(getUniform("normalMap"), 1);
 	}
 
 	// TODO : Add your custom parameters here
