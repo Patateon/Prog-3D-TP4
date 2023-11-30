@@ -14,6 +14,7 @@ uniform sampler2D colorTexture;
 uniform sampler2D normalMap;
 
 
+
 void main() {
     //FragColor = color;
     // FragColor = texture(colorTexture, o_uv0) * color;
