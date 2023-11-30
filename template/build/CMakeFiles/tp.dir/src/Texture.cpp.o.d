@@ -1,7 +1,7 @@
 CMakeFiles/tp.dir/src/Texture.cpp.o: \
- /home/patateon/Documents/Projets/TP4/template/src/Texture.cpp \
+ /home/e20200008252/Cours/Prog-3D-TP4/template/src/Texture.cpp \
  /usr/include/stdc-predef.h \
- /home/patateon/Documents/Projets/TP4/template/include/Texture.h \
+ /home/e20200008252/Cours/Prog-3D-TP4/template/include/Texture.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -133,7 +133,7 @@ CMakeFiles/tp.dir/src/Texture.cpp.o: \
  /usr/include/c++/11/cstddef /usr/include/GL/glu.h /usr/include/GL/gl.h \
  /usr/include/GL/glut.h /usr/include/GL/freeglut_std.h \
  /usr/include/c++/11/stdlib.h \
- /home/patateon/Documents/Projets/TP4/template/include/stb_image.h \
+ /home/e20200008252/Cours/Prog-3D-TP4/template/include/stb_image.h \
  /usr/include/c++/11/stdexcept /usr/include/c++/11/exception \
  /usr/include/c++/11/bits/exception_ptr.h \
  /usr/include/c++/11/bits/cxxabi_init_exception.h \

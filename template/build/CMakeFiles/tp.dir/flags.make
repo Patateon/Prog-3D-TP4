@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/patateon/Documents/Projets/TP4/template/include
+CXX_INCLUDES = -I/home/e20200008252/Cours/Prog-3D-TP4/template/include -I/home/e20200008252/Cours/Prog-3D-TP4/template/thirdparties/glm -I/home/e20200008252/Cours/Prog-3D-TP4/template/thirdparties/assimp/code/../include -I/home/e20200008252/Cours/Prog-3D-TP4/template/build/thirdparties/assimp/code/../include
 
 CXX_FLAGS = 
 
