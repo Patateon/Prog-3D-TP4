@@ -16,6 +16,8 @@ struct Material {
 	glm::vec4 m_color;
 	GLint m_texture;
 	GLint m_normal;
+	glm::vec3 positionCamera;
+	glm::vec3 positionLight;
 
 	inline void check() {
 		if (m_program == 0) {

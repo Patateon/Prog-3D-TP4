@@ -1,7 +1,9 @@
+#include <iostream>
 // Local includes
 #include "Material.h"
 #include "Shader.h"
 #include "Texture.h"
+#include "Context.h"
 // GLM includes
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -21,8 +23,9 @@ void Material::init() {
 	check();
 	// TODO : set initial parameters
 	m_color = {1.0, 1.0, 1.0, 1.0};
+	positionLight = glm::vec3(-1, 1, 0);
 	m_texture = loadTexture2DFromFilePath("data/TwoSidedPlane_BaseColor.png");
-	m_normal = loadTexture2DFromFilePathDepth("data/TwoSidedPlane_Normal.png");
+	m_normal = loadTexture2DFromFilePath("data/TwoSidedPlane_Normal.png");
 }
 
 void Material::clear() {
@@ -52,6 +55,12 @@ void Material::internalBind() {
 		glUniform1i(getUniform("normalMap"), 1);
 	}
 
+	positionCamera = Context::camera.getPosition();
+
+	glUniform3fv(getUniform("camPos"), 1, glm::value_ptr(positionCamera));
+	glUniform3fv(getUniform("lightPos"), 1, glm::value_ptr(positionLight));
+
+	
 	// TODO : Add your custom parameters here
 }
 

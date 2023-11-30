@@ -106,3 +106,7 @@ glm::mat4 Camera::getProjectionMatrix() {
 	);
 	return projection;
 }
+
+glm::vec3 Camera::getPosition(){
+	return position;
+}

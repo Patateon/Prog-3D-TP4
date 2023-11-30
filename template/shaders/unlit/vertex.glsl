@@ -16,14 +16,24 @@ uniform mat4 projection;
 out vec3 o_positionWorld;
 out vec3 o_normalWorld;
 out vec2 o_uv0;
+out mat3 o_tbn;
 
+vec3 tangentWorld;
+vec3 bitangentWorld;
 
 
 void main() {
   mat3 normalMatrix = mat3(transpose(inverse(model)));
   o_uv0 = uv0;
+
   vec4 positionWorld = model * vec4(position, 1.0);
   o_positionWorld = positionWorld.xyz;
+
   o_normalWorld = normalMatrix * normal;
+  tangentWorld = normalMatrix * tangent;
+  bitangentWorld = cross(normal, tangent);
+
+  o_tbn = mat3(tangentWorld, bitangentWorld, o_normalWorld);
+
   gl_Position = projection * view * positionWorld;
 }
