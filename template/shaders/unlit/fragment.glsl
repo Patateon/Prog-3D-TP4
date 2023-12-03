@@ -10,6 +10,7 @@ uniform vec4 color;
 uniform vec3 camPos;
 uniform vec3 lightPos;
 
+uniform samplerCube cubeMap;
 uniform sampler2D colorTexture;
 uniform sampler2D normalMap;
 
@@ -26,9 +27,9 @@ void main() {
     // FragColor = vec4(0.5 * o_normalWorld + vec3(0.5) , 1.0);
     // DEBUG: uv0
     // FragColor = vec4(o_uv0, 1.0);
-    vec3 normal = o_tbn * (2. * texture(normalMap, o_uv0).rgb - vec3(1.0));
     // normal = normal * 0.5 + vec3(0.5);
 
+    vec3 normal = o_tbn * (2. * texture(normalMap, o_uv0).rgb - vec3(1.0));
 
     vec3 lightColor = color.rgb;
     // Ambient
