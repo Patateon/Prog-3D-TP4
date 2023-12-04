@@ -56,6 +56,13 @@ void main() {
 
     vec3 I = normalize(o_positionWorld - camPos);
     vec3 R = reflect(I, norm);
-    FragColor = vec4(result, 1.0) * vec4(texture(cubeMap, R).rgb, 1.0);
+
+    // Normal mapping + Texture
     // FragColor =  vec4(result, 1.0);
+
+    // Reflection
+    FragColor = vec4(texture(cubeMap, R).rgb, 1.0);
+
+    // Reflection + Normal mapping + Texture
+    // FragColor = vec4(result, 1.0) * vec4(texture(cubeMap, R).rgb, 1.0);
 }
