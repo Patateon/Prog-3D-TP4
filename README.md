@@ -53,4 +53,6 @@ template/build$ make tp
 sh run.sh ./data/TwoSidedPlane.gltf
 ```
 
+## Autres
 
+Pour changer le résultat faut commenter et décommenter les 3 dernières lignes de fragment.glsl
