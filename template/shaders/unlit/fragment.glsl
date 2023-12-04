@@ -12,6 +12,7 @@ uniform vec3 lightPos;
 
 uniform sampler2D colorTexture;
 uniform sampler2D normalMap;
+uniform samplerCube cubeMap;
 
 
 
@@ -53,5 +54,8 @@ void main() {
 
 
 
-    FragColor =  vec4(result, 1.0);
+    vec3 I = normalize(o_positionWorld - camPos);
+    vec3 R = reflect(I, norm);
+    FragColor = vec4(result, 1.0) * vec4(texture(cubeMap, R).rgb, 1.0);
+    // FragColor =  vec4(result, 1.0);
 }
