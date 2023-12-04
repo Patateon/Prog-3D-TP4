@@ -10,7 +10,6 @@ uniform vec4 color;
 uniform vec3 camPos;
 uniform vec3 lightPos;
 
-uniform samplerCube cubeMap;
 uniform sampler2D colorTexture;
 uniform sampler2D normalMap;
 

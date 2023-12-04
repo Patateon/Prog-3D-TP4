@@ -35,6 +35,51 @@
 
 static GLint window;
 
+float skyboxVertices[] = {
+// positions          
+	-1.0f,  1.0f, -1.0f,
+	-1.0f, -1.0f, -1.0f,
+	1.0f, -1.0f, -1.0f,
+	1.0f, -1.0f, -1.0f,
+	1.0f,  1.0f, -1.0f,
+	-1.0f,  1.0f, -1.0f,
+
+	-1.0f, -1.0f,  1.0f,
+	-1.0f, -1.0f, -1.0f,
+	-1.0f,  1.0f, -1.0f,
+	-1.0f,  1.0f, -1.0f,
+	-1.0f,  1.0f,  1.0f,
+	-1.0f, -1.0f,  1.0f,
+
+	1.0f, -1.0f, -1.0f,
+	1.0f, -1.0f,  1.0f,
+	1.0f,  1.0f,  1.0f,
+	1.0f,  1.0f,  1.0f,
+	1.0f,  1.0f, -1.0f,
+	1.0f, -1.0f, -1.0f,
+
+	-1.0f, -1.0f,  1.0f,
+	-1.0f,  1.0f,  1.0f,
+	1.0f,  1.0f,  1.0f,
+	1.0f,  1.0f,  1.0f,
+	1.0f, -1.0f,  1.0f,
+	-1.0f, -1.0f,  1.0f,
+
+	-1.0f,  1.0f, -1.0f,
+	1.0f,  1.0f, -1.0f,
+	1.0f,  1.0f,  1.0f,
+	1.0f,  1.0f,  1.0f,
+	-1.0f,  1.0f,  1.0f,
+	-1.0f,  1.0f, -1.0f,
+
+	-1.0f, -1.0f, -1.0f,
+	-1.0f, -1.0f,  1.0f,
+	1.0f, -1.0f, -1.0f,
+	1.0f, -1.0f, -1.0f,
+	-1.0f, -1.0f,  1.0f,
+	1.0f, -1.0f,  1.0f
+};
+
 void init() {
 	// Context::camera.initPos();
 	Context::camera.resize(SCREENWIDTH, SCREENHEIGHT);
@@ -70,6 +115,40 @@ void beforeLoop() {
 
 }
 
+void drawCubeMap(){
+	GLuint shadersSkybox = load_shaders("shaders/unlit/skybox.vs", "shaders/unlit/skybox.fs");
+
+	if (shadersSkybox == 0) {
+		throw std::runtime_error("Shader program not initialized");
+	}
+
+	glUseProgram(shadersSkybox);
+
+	glm::mat4 view = glm::mat4(glm::mat3(Context::camera.view));
+
+	glUniformMatrix4fv(glGetUniformLocation(shadersSkybox, "projection"), 1, false, glm::value_ptr(Context::camera.projection));
+	glUniformMatrix4fv(glGetUniformLocation(shadersSkybox, "view"), 1, false, glm::value_ptr(view));
+
+
+	GLuint vao, vbo;
+	glGenVertexArrays(1, &vao);
+	glGenBuffers(1, &vbo);
+
+	glBindVertexArray(vao);
+
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), skyboxVertices, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(float), (void*)0);
+
+	glEnableVertexAttribArray(0);
+	glDepthMask(GL_FALSE);
+
+	glDrawArrays(GL_TRIANGLES, 0, 36 * 3);
+	
+	glDepthMask(GL_TRUE);
+	glDisableVertexAttribArray(0);
+}
+
 
 void draw() {
 	if (Context::refreshMatrices) {
@@ -81,6 +160,7 @@ void draw() {
 	// Clear the screen
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	drawCubeMap();
 	for (int i = 0; i < Context::instances.size(); ++i) {
 		Instance& inst = Context::instances[i];
 		Material* material = inst.material;

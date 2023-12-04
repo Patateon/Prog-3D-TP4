@@ -25,7 +25,6 @@ vec3 bitangentWorld;
 void main() {
   mat3 normalMatrix = mat3(transpose(inverse(model)));
   o_uv0 = uv0;
-
   vec4 positionWorld = model * vec4(position, 1.0);
   o_positionWorld = positionWorld.xyz;
 
